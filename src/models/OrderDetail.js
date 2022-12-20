@@ -2,33 +2,35 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   return sequelize.define(
-    "Order",
+    "OrderDetail",
     {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      userId: {
+      orderId: {
+        type: DataTypes.INTEGER,
+        field: "order_id",
+      },
+      foodId: {
+        type: DataTypes.INTEGER,
+        ield: "food_id",
+      },
+      quantity: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        field: "user_id",
-      },
-      totalPrice: {
-        type: DataTypes.FLOAT,
-        allowNull: false,
-        field: "total_price",
       },
       discount: {
         type: DataTypes.INTEGER,
       },
-      status: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+      price: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
       },
     },
     {
-      tableName: "orders",
+      tableName: "order_details",
       // disable createdAt, updatedAt
       timestamps: false,
     }
